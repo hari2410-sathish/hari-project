@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/hari2410-sathish/hari-project.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build('flask-demo-app')
+                }
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh 'docker run -d -p 5000:5000 --name flask_app flask-demo-app'
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'docker ps -a'
+        }
+    }
+}
+
