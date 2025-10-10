@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo "🚀 Running container..."
                 sh '''
-                    docker run -d -p 500:5000 --name hari hari-project
+                    docker run -d -p 5000:5000 --name hari hari-project
                     docker ps -a
                 '''
             }
