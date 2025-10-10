@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     echo "🛠 Building Docker image..."
-                    docker.build('flask-demo-app')
+                    docker.build('hari-project')
                 }
             }
         }
@@ -14,7 +14,7 @@ pipeline {
         stage('Clean Old Container') {
             steps {
                 echo "🧹 Removing old container (if exists)..."
-                sh 'docker rm -f flask_app || true'
+                sh 'docker rm -f hari || true'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo "🚀 Running container..."
                 sh '''
-                    docker run -d -p 5000:5000 --name flask_app flask-demo-app
+                    docker run -d -p 5000:5000 --name hari hari-project
                     docker ps -a
                 '''
             }
