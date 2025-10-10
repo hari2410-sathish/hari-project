@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     echo "🛠 Building Docker image..."
-                    docker.build('hari-project')
+                    docker.build('hari-project-1')
                 }
             }
         }
