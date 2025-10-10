@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello from Flask in a CI/CD pipeline created successfully!"
+    return "Hello from Flask in a CI/CD pipeline created successfully then!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
